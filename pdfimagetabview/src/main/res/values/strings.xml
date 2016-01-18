@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pdf Image Tab View</string>
+    <string name="loading">Loading…</string>
 </resources>
