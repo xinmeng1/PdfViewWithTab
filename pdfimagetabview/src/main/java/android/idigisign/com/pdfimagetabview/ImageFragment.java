@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -59,33 +57,32 @@ public class ImageFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
-        int[] viewCoords = new int[2];
-        Log.i("Position2",
-                "Before Image location X: " + String.valueOf(viewCoords[0])
-                        + " Y: " + String.valueOf(viewCoords[1]));
-        backgroundImage.getLocationOnScreen(viewCoords);
-        Log.i("Position2",
-                "Image location X: " + String.valueOf(viewCoords[0])
-                        + " Y: " + String.valueOf(viewCoords[1]));
-        final int[][] imageXY = {viewCoords} ;
-
-        backgroundImage.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int touchX = (int) event.getX();
-                int touchY = (int) event.getY();
-
-                int imageX = touchX - imageXY[0][0]; // viewCoords[0] is the X coordinate
-                int imageY = touchY - imageXY[0][1]; // viewCoords[1] is the y coordinate
-
-                Log.i("Position2",
-                        "Position Touch on Image X: " + String.valueOf(imageX)
-                                + " Y: " + String.valueOf(imageY));
-                return false;
-            }
-        });
+        //We can not setOnTouch, because we need to Scale the image by using touch
+//        int[] viewCoords = new int[2];
+//        Log.i("Position2",
+//                "Before Image location X: " + String.valueOf(viewCoords[0])
+//                        + " Y: " + String.valueOf(viewCoords[1]));
+//        backgroundImage.getLocationOnScreen(viewCoords);
+//        Log.i("Position2",
+//                "Image location X: " + String.valueOf(viewCoords[0])
+//                        + " Y: " + String.valueOf(viewCoords[1]));
+//        final int[][] imageXY = {viewCoords} ;
+//
+//        backgroundImage.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                int touchX = (int) event.getX();
+//                int touchY = (int) event.getY();
+//
+//                int imageX = touchX - imageXY[0][0]; // viewCoords[0] is the X coordinate
+//                int imageY = touchY - imageXY[0][1]; // viewCoords[1] is the y coordinate
+//
+//                Log.i("Position2",
+//                        "Position Touch on Image X: " + String.valueOf(imageX)
+//                                + " Y: " + String.valueOf(imageY));
+//                return false;
+//            }
+//        });
     }
 
     private void loadImageToView() {
